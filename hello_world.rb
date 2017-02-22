@@ -1,13 +1,16 @@
+require 'erb'
 require_relative 'advice'
 
 class HelloWorld
   def call(env)
     case env['REQUEST_PATH']
     when '/'
+      template = File.read("views/index.erb")
+      content = ERB.new(template)
       [
         '200',
         {"Content-Type" => "text/html"},
-        ["<h2>Hello World</h2>"]
+        [content.result]
       ]
     when '/advice'
       piece_of_advice = Advice.new.generate  # random advice
