@@ -1,5 +1,5 @@
 ## Monoro
-A framework developed in ruby support of Rack interface.
+A framework developed in ruby with support of Rack interface.
 
 ### Structure
 - `config.ru` contains rack setup
